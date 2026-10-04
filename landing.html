@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatWidget — AI Chatbot for Your Business · Mediastarr</title>
+<meta name="description" content="An AI assistant trained on your business. Answers questions, takes bookings and orders, captures leads — 24/7 on your website. $49.99/month.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: #1f2937; background: #fff; line-height: 1.6; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+  .logo { font-weight: 800; font-size: 20px; color: #1a2b4a; }
+  .logo span { color: #2563eb; }
+  .navlinks a { margin-left: 28px; text-decoration: none; color: #4b5563; font-size: 15px; }
+  .btn { display: inline-block; background: #2563eb; color: #fff; text-decoration: none;
+         padding: 13px 30px; border-radius: 12px; font-weight: 700; font-size: 16px; border: none; cursor: pointer; }
+  .btn:hover { background: #1d4ed8; }
+  .btn.ghost { background: #eef2ff; color: #2563eb; }
+  .hero { text-align: center; padding: 70px 0 50px; }
+  .hero h1 { font-size: 46px; line-height: 1.15; color: #111827; letter-spacing: -1px; max-width: 760px; margin: 0 auto 18px; }
+  .hero h1 span { color: #2563eb; }
+  .hero p { font-size: 19px; color: #6b7280; max-width: 620px; margin: 0 auto 32px; }
+  .hero .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .badges { display: flex; gap: 26px; justify-content: center; margin-top: 44px; flex-wrap: wrap; }
+  .badge { display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: #4b5563; font-weight: 600; }
+  .badge .dot { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
+  .section { padding: 64px 0; }
+  .section h2 { text-align: center; font-size: 32px; color: #111827; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .section .sub { text-align: center; color: #6b7280; font-size: 17px; margin-bottom: 44px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .step { background: #f8fafc; border-radius: 16px; padding: 30px 26px; text-align: center; }
+  .step .num { width: 44px; height: 44px; border-radius: 50%; background: #2563eb; color: #fff;
+               font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .step h3 { font-size: 18px; margin-bottom: 8px; }
+  .step p { font-size: 14.5px; color: #6b7280; }
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .feat { display: flex; gap: 16px; background: #f8fafc; border-radius: 14px; padding: 24px; }
+  .feat .icon { font-size: 28px; flex: 0 0 auto; }
+  .feat h3 { font-size: 16.5px; margin-bottom: 6px; }
+  .feat p { font-size: 14.5px; color: #6b7280; }
+  .demo-box { background: #1a2b4a; border-radius: 20px; padding: 54px 40px; text-align: center; color: #fff; }
+  .demo-box h2 { color: #fff; }
+  .demo-box p { color: #c3cede; max-width: 560px; margin: 0 auto 26px; font-size: 17px; }
+  .demo-hint { display: inline-block; background: rgba(255,255,255,.12); border-radius: 10px;
+               padding: 10px 20px; font-size: 14px; color: #e5eaf3; }
+  .pricing { max-width: 440px; margin: 0 auto; background: #fff; border: 2px solid #2563eb;
+             border-radius: 20px; padding: 40px 36px; text-align: center;
+             box-shadow: 0 12px 40px rgba(37,99,235,.12); }
+  .pricing .price { font-size: 52px; font-weight: 800; color: #111827; }
+  .pricing .per { color: #6b7280; font-size: 16px; }
+  .pricing ul { list-style: none; text-align: left; margin: 26px 0; }
+  .pricing li { padding: 9px 0; font-size: 15px; border-bottom: 1px solid #f1f5f9; }
+  .pricing li:before { content: "✓ "; color: #22c55e; font-weight: 700; }
+  .faq { max-width: 720px; margin: 0 auto; }
+  .faq details { background: #f8fafc; border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; }
+  .faq summary { font-weight: 700; cursor: pointer; font-size: 15.5px; }
+  .faq p { margin-top: 10px; font-size: 14.5px; color: #4b5563; }
+  .final { text-align: center; padding: 70px 0; background: #f8fafc; border-radius: 24px; margin-bottom: 40px; }
+  .final h2 { margin-bottom: 14px; }
+  footer { text-align: center; color: #9aa1ad; font-size: 13px; padding: 26px 0 40px; }
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 33px; }
+    .steps, .features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">Chat<span>Widget</span></div>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Your website's new best <span>employee</span> — one that never sleeps</h1>
+    <p>An AI assistant trained on <em>your</em> business. It answers customer questions, takes bookings and orders, and captures leads — 24/7, right on your website.</p>
+    <div class="cta-row">
+      <a class="btn" href="#pricing">Get started — $49.99/mo</a>
+      <a class="btn ghost" href="#demo">Try the live demo</a>
+    </div>
+    <div class="badges">
+      <div class="badge"><span class="dot"></span> Live in 5 minutes</div>
+      <div class="badge"><span class="dot"></span> No app to install</div>
+      <div class="badge"><span class="dot"></span> Cancel anytime</div>
+    </div>
+  </div>
+
+  <div class="section" id="how">
+    <h2>How it works</h2>
+    <div class="sub">From signup to answering customers in three steps.</div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Tell it about your business</h3><p>Your hours, menu, services, prices, policies — anything customers ask about. Takes 10 minutes.</p></div>
+      <div class="step"><div class="num">2</div><h3>Paste one line of code</h3><p>Add a single script tag to your website. Works with WordPress, Wix, Squarespace, or plain HTML.</p></div>
+      <div class="step"><div class="num">3</div><h3>It answers customers</h3><p>A chat bubble appears on your site. Visitors ask questions, your AI answers instantly — day or night.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why businesses love it</h2>
+    <div class="sub">It's like hiring a receptionist, a booking agent, and a cashier — for less than $2 a day.</div>
+    <div class="features">
+      <div class="feat"><div class="icon">🕐</div><div><h3>Never misses a customer</h3><p>Questions at 11pm? Answered. No more lost business while you sleep.</p></div></div>
+      <div class="feat"><div class="icon">🎯</div><div><h3>Trained on YOUR business</h3><p>It only answers from the info you provide — your real hours, menu, and prices.</p></div></div>
+      <div class="feat"><div class="icon">📞</div><div><h3>Captures leads automatically</h3><p>When it can't answer, it collects the visitor's name and number — and emails you instantly.</p></div></div>
+      <div class="feat"><div class="icon">📅</div><div><h3>Takes bookings</h3><p>Reservations and appointments booked right in the chat — date, time, party size.</p></div></div>
+      <div class="feat"><div class="icon">🍕</div><div><h3>Takes orders</h3><p>Restaurants and shops: customers order from your menu in the chat. The order hits your inbox instantly.</p></div></div>
+      <div class="feat"><div class="icon">📊</div><div><h3>Owner dashboard</h3><p>Every lead, booking, and order in one place — plus instant email alerts the moment they come in.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="demo">
+    <div class="demo-box">
+      <h2>Try it right now</h2>
+      <p>This is a real chatbot running on a demo pizza shop's website. Click the chat bubble in the bottom-right corner — ask about hours, try booking a table, or place an order.</p>
+      <span class="demo-hint">💬 Look for the bubble, bottom-right →</span>
+    </div>
+  </div>
+
+  <div class="section" id="pricing">
+    <h2>Simple pricing</h2>
+    <div class="sub">One plan. Everything included.</div>
+    <div class="pricing">
+      <div class="price">$49.99<span class="per">/month</span></div>
+      <ul>
+        <li>AI chatbot on your website</li>
+        <li>Trained on your business info</li>
+        <li>Lead capture with instant email alerts</li>
+        <li>Booking &amp; reservation taking</li>
+        <li>Order taking for restaurants &amp; shops</li>
+        <li>Owner dashboard for leads, bookings, orders</li>
+        <li>Your branding &amp; colors</li>
+        <li>Unlimited customer chats</li>
+        <li>Update your info anytime</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <a class="btn" href="https://mediastarr.lemonsqueezy.com/checkout/buy/30925935-3f51-4cfe-92cf-55889f9b38a3">Get started</a>
+    </div>
+  </div>
+
+  <div class="section" id="faq">
+    <h2>Questions</h2>
+    <div class="sub"></div>
+    <div class="faq">
+      <details><summary>Will it make up wrong answers about my business?</summary><p>No. It's instructed to answer only from the business info you provide. If a customer asks something it doesn't know, it says so and offers to take their contact details for you.</p></details>
+      <details><summary>How do bookings and orders reach me?</summary><p>Instantly by email — the moment a visitor books or orders, you get an email with all the details. Everything is also saved to your owner dashboard.</p></details>
+      <details><summary>Does it work with my website builder?</summary><p>Yes — WordPress, Wix, Squarespace, Shopify, or plain HTML. If you can paste a line of code (or have someone who can), it works.</p></details>
+      <details><summary>What happens when I cancel?</summary><p>The chatbot is removed and billing stops. No lock-in, no fees.</p></details>
+      <details><summary>Can I change my business info later?</summary><p>Anytime. Update your hours, menu, or prices and the chatbot picks it up immediately.</p></details>
+    </div>
+  </div>
+
+  <div class="final">
+    <h2>Stop losing customers after hours</h2>
+    <p style="color:#6b7280;margin-bottom:26px">Join the businesses answering customers 24/7.</p>
+    <a class="btn" href="https://mediastarr.lemonsqueezy.com/checkout/buy/30925935-3f51-4cfe-92cf-55889f9b38a3">Get ChatWidget — $49.99/mo</a>
+  </div>
+
+  <footer>ChatWidget by Mediastarr · Questions? mediastarr86@gmail.com</footer>
+</div>
+
+<!-- Live demo: the Sunny's Pizza chatbot, embedded on this page. -->
+<script>
+  const WORKER_URL = "https://chat-widget.mediastarr86.workers.dev/"; // <-- paste your Worker URL to activate the live demo
+  if (WORKER_URL) {
+    const s = document.createElement("script");
+    s.src = WORKER_URL.replace(/\/$/, "") + "/widget.js";
+    s.setAttribute("data-business", "sunnys-pizza");
+    document.body.appendChild(s);
+  }
+</script>
+</body>
+</html>
